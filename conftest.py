@@ -8,8 +8,7 @@ from selenium.webdriver.firefox.options import Options as FFOptions
 def pytest_addoption(parser):
     parser.addoption('--browser', default='chrome')
     parser.addoption('--headless', action='store_true')
-    parser.addoption('--url', default='http://192.168.1.135:8081',
-                     help='Базовый URL страницы opencart: 192.168.1.135:8081')
+    parser.addoption('--url', default='http://192.168.1.135:8081')
 
 
 @pytest.fixture()
@@ -31,9 +30,7 @@ def browser(request):
 
     driver.maximize_window()
 
-    request.addfinalizer(driver.quit)
-
-    driver.get(url=url)
     driver.url = url
+    driver.get(url=url)
 
     yield driver
