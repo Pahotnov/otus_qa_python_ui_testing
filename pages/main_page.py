@@ -1,7 +1,10 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
+
+from pages.base_page import BasePage
 
 
-class MainPage:
+class MainPage(BasePage):
     NAVIGATION = (By.CSS_SELECTOR, '#top')
     LOGO = (By.CSS_SELECTOR, '#logo')
     SEARCH = (By.CSS_SELECTOR, '#search')
@@ -12,4 +15,30 @@ class MainPage:
     CART_LABEL = (By.CSS_SELECTOR, '#header-cart>div>button')
     CURRENCY_DROPDOWN = (By.CSS_SELECTOR, '#form-currency')
     ITEMS_PRICES = (By.CSS_SELECTOR, 'span[class*="price"]')
-    CURRENCY_DROPDOWN_ITEMS = (By.CSS_SELECTOR, '#form-currency>div>ul>li>a')
+
+    def get_navigation(self):
+        self.get_element(self.NAVIGATION)
+
+    def get_logo(self):
+        self.get_element(self.LOGO)
+
+    def get_search(self):
+        self.get_element(self.SEARCH)
+
+    def get_cart(self):
+        self.get_element(self.CART)
+
+    def get_container(self):
+        self.get_element(self.CONTAINER)
+
+    def click_on_add_to_cart_button(self):
+        self.click_on(self.ADD_TO_CART_BUTTON)
+
+    def get_alert_popup(self):
+        self.get_element(self.ALERT_POPUP)
+
+    def get_cart_label_text(self):
+        return self.get_element_text(self.CART_LABEL)
+
+    def get_item_prices(self) -> list[WebElement]:
+        return self.get_elements(self.ITEMS_PRICES)
