@@ -1,6 +1,3 @@
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
-
 from base_elements.currency_dropdown import CurrencyDropdown
 from pages.main_page import MainPage
 

@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 
 from pages.base_page import BasePage
 
@@ -26,5 +27,5 @@ class CatalogPage(BasePage):
     def get_product_list(self):
         self.get_element(self.PRODUCT_LIST)
 
-    def get_item_prices(self):
+    def get_item_prices(self) -> list[WebElement]:
         return self.get_elements(self.ITEMS_PRICES)

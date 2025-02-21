@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 
 from pages.base_page import BasePage
 
@@ -39,5 +40,5 @@ class MainPage(BasePage):
     def get_cart_label_text(self):
         return self.get_element_text(self.CART_LABEL)
 
-    def get_item_prices(self):
-       return  self.get_elements(self.ITEMS_PRICES)
+    def get_item_prices(self) -> list[WebElement]:
+        return self.get_elements(self.ITEMS_PRICES)

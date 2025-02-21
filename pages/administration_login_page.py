@@ -32,7 +32,6 @@ class AdministrationLoginPage(BasePage):
     def fill_password_field(self, password: str):
         self.send_keys(self.PASSWORD_INPUT, password)
 
-    def click_on_submit_button(self):
+    def click_on_submit_button(self) -> AdministrationPage:
         self.click_on(self.SUBMIT_BUTTON)
         return AdministrationPage(self.driver)
-
